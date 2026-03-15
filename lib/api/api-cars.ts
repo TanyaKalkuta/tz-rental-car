@@ -9,11 +9,12 @@ const api = axios.create({
   },
 });
 
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
 export const getCars = async () => {
-  await delay(2000);
   const res = await api.get<CarsListResponse>('/cars');
+  return res.data;
+};
+export const getSingleCar = async (id: string) => {
+  const res = await api.get<Car>(`/cars/${id}`);
   return res.data;
 };
 // export const fetchCars = async (

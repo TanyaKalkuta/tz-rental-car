@@ -1,10 +1,9 @@
-/* HTML: <div class="loader"></div> */
 .loaderWrapper {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 99; /* Щоб бути поверх карток */
+  z-index: 99;
 }
 
 .loader {

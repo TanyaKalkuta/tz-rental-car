@@ -1,0 +1,141 @@
+.section {
+  padding: 84px 0 104px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+.mainWrapper {
+  display: flex;
+  gap: 72px;
+  align-items: flex-start;
+}
+
+.leftColumn {
+  flex: 1;
+  max-width: 640px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 512px;
+  border-radius: 19px;
+  overflow: hidden;
+  background-color: var(--white);
+  margin-bottom: 40px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.infoColumn {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  gap: 16px;
+  align-items: first baseline;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.id {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray);
+  line-height: 1.25;
+}
+
+.locationInfo {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--main);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+  margin-bottom: 32px;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  margin-bottom: 68px;
+}
+
+/* БЛОКИ (Умови та Аксесуари) */
+.blockBox {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+/* Назви розділів */
+.blockTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--main);
+  margin-bottom: 20px;
+}
+
+/* Списки для Conditions та Accessories (однакова логіка) */
+.conditionsList,
+.accessoriesList,
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Елементи списків */
+.conditionItem,
+.accessoryItem,
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+/* Стилізація іконок-галочок */
+.metaIcon {
+  width: 16px;
+  height: 16px;
+  fill: var(--dark);
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: var(--dark);
+}

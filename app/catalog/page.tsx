@@ -1,5 +1,5 @@
 // 'use client';
-export const dynamic = 'force-dynamic';
+
 import { getCars } from '@/lib/api/api-cars';
 import CarList from '@/components/CarList/CarList';
 
