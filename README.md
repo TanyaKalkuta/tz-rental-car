@@ -25,7 +25,7 @@ https://tz-rental-car-csck.vercel.app/
 - **Language**: TypeScript
 - **State Management**: Zustand
 - **Data Fetching**: Axios + React Query (TanStack)
-- **Styles**: CSS Modules / Tailwind (вкажи своє)
+- **Styles**: CSS Modules
 - **Forms**: React Hook Form
 - **Notifications**: React Hot Toast
 
