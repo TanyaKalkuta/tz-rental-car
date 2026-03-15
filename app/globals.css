@@ -74,6 +74,25 @@ img {
 .button:focus {
   background-color: var(--button-hover); /* Темніший синій при наведенні */
 }
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--button);
+  background-color: transparent;
+  color: var(--button);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 12px 51px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.load-more-btn:hover {
+  border: 1px solid var(--button-hover);
+}
+.catalog {
+  padding: 84px 0 124px;
+}
 
 .container {
   width: 100%;

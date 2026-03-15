@@ -22,6 +22,30 @@
 .card:hover .image {
   transform: scale(1.05); /* Легке збільшення при наведенні */
 }
+.favoriteBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.favoriteBtn svg {
+  fill: none;
+  stroke: white;
+  transition: all 0.2s ease;
+}
+.favoriteBtn svg[class*='active'],
+.favoriteBtn:hover svg {
+  transform: scale(1.1);
+  fill: var(--button);
+  stroke: var(--button);
+}
+
 .mainInfo {
   display: flex;
   justify-content: space-between;

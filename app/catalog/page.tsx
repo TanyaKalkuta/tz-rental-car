@@ -45,18 +45,14 @@ export default function CatalogPage() {
   };
 
   return (
-    <section>
+    <section className="catalog">
       <div className="container">
         {/* Тут згодом додамо Filters */}
         {cars?.length > 0 && <CarList cars={cars} />}
         {loading && <Loader />}
 
         {hasMore && !loading && (
-          <button
-            onClick={handleLoadMore}
-            className="button load-more-btn"
-            style={{ display: 'block', margin: '40px auto', cursor: 'pointer' }}
-          >
+          <button onClick={handleLoadMore} className="load-more-btn">
             Load More
           </button>
         )}
@@ -64,15 +60,3 @@ export default function CatalogPage() {
     </section>
   );
 }
-// const CatalogPage = async () => {
-//   const { cars } = await getCars();
-
-//   return (
-//     <section>
-//       <div className="container">
-//         {cars?.length > 0 && <CarList cars={cars} />}
-//       </div>
-//     </section>
-//   );
-// };
-// export default CatalogPage;
