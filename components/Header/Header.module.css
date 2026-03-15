@@ -1,0 +1,41 @@
+.header {
+  /* min-height: 68px; */
+  padding: 24px 0;
+  border-bottom: 1px solid var(--badges);
+  background-color: var(--badges);
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: var(--main);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  /* letter-spacing: -0.02em; */
+}
+.logo span {
+  color: var(--button);
+}
+
+.navigation {
+  display: flex;
+  gap: 32px;
+  color: var(--main);
+}
+
+.link {
+  color: var(--main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  transition: color 250ms ease;
+}
+.active {
+  color: var(--button-hover);
+}
+.link:hover {
+  color: var(--button-hover);
+}
