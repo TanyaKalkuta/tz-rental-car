@@ -1,0 +1,80 @@
+.filterForm {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  margin-bottom: 50px; /* Відступ до списку машин */
+  flex-wrap: wrap; /* Щоб на менших екранах переносилося */
+}
+
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #8a8a89;
+}
+
+.input {
+  background: #f7f7fb;
+  border-radius: 14px;
+  border: none;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #121417;
+  outline: none;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #121417;
+}
+
+.select {
+  appearance: none; /* Прибираємо стандартну стрілку браузера */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%22%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23121417%22%20d%3D%22M5%207l5%205%205-5H5z%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 18px top 50%;
+  padding-right: 40px; /* Місце для стрілки */
+  cursor: pointer;
+}
+/* Ширина для блоку бренду */
+.fieldWrapper:nth-child(1) .input {
+  width: 224px;
+}
+
+/* Ширина для блоку ціни */
+.fieldWrapper:nth-child(2) .input {
+  width: 125px;
+}
+
+.mileageGroup {
+  display: flex;
+  background-color: #f7f7fb;
+  border-radius: 14px;
+  overflow: hidden;
+  width: 320px;
+}
+
+.mileageInput {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  width: 50%;
+  padding-left: 24px;
+}
+
+.mileageInput:last-child {
+  border-right: none;
+}
+.searchBtn {
+  padding: 14px 44px;
+  font-size: 14px;
+  border-radius: 14px;
+  height: 48px; /* Щоб була врівень з інпутами */
+}

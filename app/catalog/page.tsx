@@ -1,7 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { getCars } from '@/lib/api/api-cars';
+import { useEffect, useState, useCallback } from 'react';
+import { getCars, CarsQueryParams } from '@/lib/api/api-cars';
 import CarList from '@/components/CarList/CarList';
+import CarFilters from '@/components/CarFilters/CarFilters';
 import Loader from '@/components/Loader/Loader';
 import { Car } from '@/types/car';
 
@@ -10,48 +11,72 @@ export default function CatalogPage() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const fetchCars = async (nextPage: number) => {
-    setLoading(true);
-    try {
-      // Тут має бути виклик API з параметрами page та limit (наприклад, 12)
-      const data = await getCars({
-        page: String(nextPage),
-        limit: '12',
-      });
+  const [currentFilters, setCurrentFilters] = useState<CarsQueryParams>({});
 
-      if (nextPage === 1) {
-        setCars(data.cars);
-      } else {
-        setCars(prev => [...prev, ...data.cars]);
+  const fetchCars = useCallback(
+    async (nextPage: number, filters: CarsQueryParams = {}) => {
+      setLoading(true);
+      try {
+        const data = await getCars({
+          page: String(nextPage),
+          limit: '12',
+          ...filters, // Додаємо фільтри до запиту
+        });
+
+        if (nextPage === 1) {
+          setCars(data.cars);
+        } else {
+          setCars(prev => [...prev, ...data.cars]);
+        }
+
+        setHasMore(data.cars.length === 12);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
-
-      // Перевірка, чи є ще дані (залежить від того, що повертає твій бекенд)
-      if (data.cars.length < 12) setHasMore(false);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    []
+  );
 
   useEffect(() => {
     fetchCars(1);
-  }, []);
+  }, [fetchCars]);
 
   const handleLoadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchCars(nextPage);
+    fetchCars(nextPage, currentFilters);
+  };
+
+  // ОБРОБНИК ФІЛЬТРАЦІЇ
+  const handleFilter = (filters: CarsQueryParams) => {
+    // 1. Зберігаємо нові фільтри
+    setCurrentFilters(filters);
+    // 2. Скидаємо сторінку в 1
+    setPage(1);
+    // 3. Скидаємо список машин
+    setCars([]);
+    // 4. Робимо новий запит з фільтрами
+    fetchCars(1, filters);
   };
 
   return (
     <section className="catalog">
       <div className="container">
-        {/* Тут згодом додамо Filters */}
+        <CarFilters onFilter={handleFilter} />
+
         {cars?.length > 0 && <CarList cars={cars} />}
+        {cars?.length === 0 && !loading && (
+          <p
+            style={{ textAlign: 'center', fontSize: '18px', marginTop: '40px' }}
+          >
+            No cars found matching your criteria.
+          </p>
+        )}
         {loading && <Loader />}
 
-        {hasMore && !loading && (
+        {hasMore && !loading && cars.length > 0 && (
           <button onClick={handleLoadMore} className="load-more-btn">
             Load More
           </button>

@@ -9,14 +9,15 @@ const api = axios.create({
   },
 });
 
-interface CarsQueryParams {
+export interface CarsQueryParams {
   brand?: string;
   rentalPrice?: string;
-  minMileage?: string;
-  maxMileage?: string;
-  limit?: string;
-  page?: string;
+  minMileage?: string | number;
+  maxMileage?: string | number;
+  limit?: string | number;
+  page?: string | number;
 }
+
 export const getCars = async (
   params: CarsQueryParams = {}
 ): Promise<CarsListResponse> => {
@@ -27,7 +28,7 @@ export const getSingleCar = async (id: string) => {
   const res = await api.get<Car>(`/cars/${id}`);
   return res.data;
 };
-export async function getBrands(): Promise<string[]> {
-  const res = await api.get<string[]>(`/brands`);
+export const getBrands = async (): Promise<string[]> => {
+  const res = await api.get<string[]>('/brands');
   return res.data;
-}
+};
