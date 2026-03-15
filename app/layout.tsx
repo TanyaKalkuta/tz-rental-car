@@ -3,6 +3,8 @@ import 'modern-normalize/modern-normalize.css';
 import { Manrope, Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header/Header';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
+import { Toaster } from 'react-hot-toast';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -25,17 +27,15 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${inter.variable}`}>
-        {/* <TanStackProvider> */}
-        {/* <AuthProvider> */}
-        <Header />
-        {children}
-        {/* </AuthProvider> */}
-        {/* </TanStackProvider> */}
+        <TanStackProvider>
+          <Header />
+          {children}
+          <Toaster position="top-center" reverseOrder={false} />
+        </TanStackProvider>
       </body>
     </html>
   );

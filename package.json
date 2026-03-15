@@ -9,11 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
     "axios": "^1.13.6",
     "modern-normalize": "^3.0.1",
     "next": "16.1.6",
     "react": "19.2.3",
+    "react-datepicker": "^9.1.0",
     "react-dom": "19.2.3",
+    "react-hook-form": "^7.71.2",
+    "react-hot-toast": "^2.6.0",
     "zustand": "^5.0.11"
   },
   "devDependencies": {

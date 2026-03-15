@@ -1,6 +1,7 @@
 import css from './CarDetails.module.css';
 import { Car } from '@/types/car';
 import Image from 'next/image';
+import BookingForm from '../BookingForm/BookingForm';
 
 interface CarDetailsProps {
   car: Car;
@@ -26,11 +27,7 @@ export default function CarDetails({ car }: CarDetailsProps) {
               />
             </div>
 
-            {/* Форма бронювання (створимо окремим компонентом пізніше) */}
-            <div className={css.formPlaceholder}>
-              <h3>Book your car now</h3>
-              {/* Тут буде твоя форма зі скріншота */}
-            </div>
+            <BookingForm />
           </div>
 
           <div className={css.infoColumn}>
@@ -47,7 +44,8 @@ export default function CarDetails({ car }: CarDetailsProps) {
               </svg>
               {city}, {country}
               <span className={css.mileage}>
-                Mileage: {car.mileage.toLocaleString()} km
+                Mileage:
+                {car.mileage.toLocaleString('uk-UA').replace(/\u00A0/g, ' ')} km
               </span>
             </p>
 

@@ -9,35 +9,25 @@ const api = axios.create({
   },
 });
 
-export const getCars = async () => {
-  const res = await api.get<CarsListResponse>('/cars');
+interface CarsQueryParams {
+  brand?: string;
+  rentalPrice?: string;
+  minMileage?: string;
+  maxMileage?: string;
+  limit?: string;
+  page?: string;
+}
+export const getCars = async (
+  params: CarsQueryParams = {}
+): Promise<CarsListResponse> => {
+  const res = await api.get<CarsListResponse>('/cars', { params });
   return res.data;
 };
 export const getSingleCar = async (id: string) => {
   const res = await api.get<Car>(`/cars/${id}`);
   return res.data;
 };
-// export const fetchCars = async (
-//   page: number,
-//   limit: number = 12,
-//   filters: CarFilters = {}
-// ) => {
-//   const { data } = await instance.get('/cars', {
-//     params: {
-//       page,
-//       limit,
-//       ...filters,
-//     },
-//   });
-//   return data; // Очікуємо масив авто та загальну кількість
-// };
-
-// export const fetchCarById = async (id: string): Promise<Car> => {
-//   const { data } = await instance.get(`/cars/${id}`);
-//   return data;
-// };
-
-// export const fetchBrands = async (): Promise<string[]> => {
-//   const { data } = await instance.get('/brands');
-//   return data;
-// };
+export async function getBrands(): Promise<string[]> {
+  const res = await api.get<string[]>(`/brands`);
+  return res.data;
+}
