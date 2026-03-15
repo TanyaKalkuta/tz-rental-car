@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RentalCar - Веб-додаток для оренди автомобілів
 
-## Getting Started
+Тестове завдання для компанії RentalCar. Додаток дозволяє переглядати каталог
+автомобілів, фільтрувати їх, додавати до обраного та бронювати.
 
-First, run the development server:
+## 🚀 Жива сторінка
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://tz-rental-car-csck.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Основні функції
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Каталог автомобілів**: Перегляд списку доступних авто.
+- **Пагінація**: Довантаження карток за допомогою кнопки "Load More" (на стороні
+  бекенда).
+- **Детальна сторінка**: Опис характеристик кожного авто.
+- **Обране**: Можливість додавати автомобілі до списку обраних (зберігається
+  після оновлення сторінки).
+- **Фільтрація**: Пошук авто за брендом, ціною та пробігом.
+- **Форма бронювання**: Можливість залишити заявку на оренду з підтвердженням
+  (нотифікація).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Технології
 
-## Learn More
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **State Management**: Zustand
+- **Data Fetching**: Axios + React Query (TanStack)
+- **Styles**: CSS Modules / Tailwind (вкажи своє)
+- **Forms**: React Hook Form
+- **Notifications**: React Hot Toast
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Встановлення та запуск
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Клонувати репозиторій:
+   ```bash
+   git clone [https://github.com/TanyaKalkuta/tz-rental-car]
+   ```
+2. Встановити залежності: npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.Запустити в режимі розробки: npm run dev
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Автор [Tetiana Kalkuta / https://github.com/TanyaKalkuta]
