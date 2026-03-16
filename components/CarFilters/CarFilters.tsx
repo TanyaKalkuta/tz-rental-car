@@ -42,7 +42,7 @@ export default function CarFilters({ onFilter }: CarFiltersProps) {
           onChange={e => setBrand(e.target.value)}
           className={`${css.input} ${css.select}`}
         >
-          <option value="">Enter the text</option>
+          <option value="">Choose a brand</option>
           {brands.map(b => (
             <option key={b} value={b}>
               {b}
@@ -58,7 +58,7 @@ export default function CarFilters({ onFilter }: CarFiltersProps) {
           onChange={e => setPrice(e.target.value)}
           className={`${css.input} ${css.select} ${css.priceSelect}`}
         >
-          <option value="">To $</option>
+          <option value="">Choose a price</option>
           {PRICES.map(p => (
             <option key={p} value={p}>
               {p}
@@ -87,7 +87,7 @@ export default function CarFilters({ onFilter }: CarFiltersProps) {
         </div>
       </div>
 
-      <button type="submit" className="button load-more-btn">
+      <button type="submit" className={css.searchBtn}>
         Search
       </button>
     </form>

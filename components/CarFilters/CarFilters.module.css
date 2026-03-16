@@ -1,37 +1,40 @@
 .filterForm {
   display: flex;
   align-items: flex-end;
-  gap: 18px;
-  margin-bottom: 50px; /* Відступ до списку машин */
-  flex-wrap: wrap; /* Щоб на менших екранах переносилося */
+  gap: 16px;
 }
 
 .fieldWrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  /* max-width: 204px; */
 }
 
 .label {
-  font-weight: 500;
-  font-size: 14px;
-  color: #8a8a89;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
 }
 
 .input {
-  background: #f7f7fb;
-  border-radius: 14px;
+  background-color: var(--inputs);
+  border-radius: 12px;
   border: none;
-  padding: 14px 18px;
-  font-size: 18px;
+  padding: 12px 16px;
+  font-size: 16px;
   font-weight: 500;
-  color: #121417;
+  line-height: 1.25;
+  color: var(--main);
   outline: none;
   width: 100%;
+  min-width: 196px;
 }
 
 .input::placeholder {
-  color: #121417;
+  line-height: 1.25;
+  color: var(--main);
 }
 
 .select {
@@ -42,20 +45,12 @@
   padding-right: 40px; /* Місце для стрілки */
   cursor: pointer;
 }
-/* Ширина для блоку бренду */
-.fieldWrapper:nth-child(1) .input {
-  width: 224px;
-}
-
-/* Ширина для блоку ціни */
-.fieldWrapper:nth-child(2) .input {
-  width: 125px;
-}
 
 .mileageGroup {
   display: flex;
-  background-color: #f7f7fb;
-  border-radius: 14px;
+  background-color: var(--inputs);
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
   overflow: hidden;
   width: 320px;
 }
@@ -63,18 +58,29 @@
 .mileageInput {
   background: transparent;
   border: none;
-  border-radius: 0;
-  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
   width: 50%;
   padding-left: 24px;
 }
 
 .mileageInput:last-child {
   border-right: none;
+  border-radius: 0 12px 12px 0;
 }
 .searchBtn {
-  padding: 14px 44px;
+  padding: 12px 56px;
   font-size: 14px;
   border-radius: 14px;
-  height: 48px; /* Щоб була врівень з інпутами */
+  /* width: 156px; */
+  height: 48px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
+  background-color: var(--button);
+  cursor: pointer;
+}
+.searchBtn:hover {
+  border: 1px solid var(--button-hover);
 }
